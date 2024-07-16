@@ -1,44 +1,42 @@
 class Solution:
     
 # My Solution
-#     def longestPalindrome(self, s: str) -> str:
-#         s_len = len(s)
+    def longestPalindrome(self, s: str) -> str:
         
-#         if len(s) < 2 or s == s[::-1]: return s
+        if len(s) < 2 or s == s[::-1]: return s
         
-#         dp = [[0 for j in range(s_len+1)] for i in range(s_len+1)]
-#         longest = ""
+        s_len = len(s)
+        longest = ""
         
-#         for i in range(s_len):
-#             for j in range(s_len):
-#                 if s[i:s_len-j] == s[i:s_len-j][::-1]:
-#                     dp[i][s_len-j-1] = s[i:s_len-j]
-#                     new = s[i:s_len-j]
-#                     break
+        for i in range(s_len):
+            for j in range(s_len):
+                if s[i:s_len-j] == s[i:s_len-j][::-1]:
+                    new = s[i:s_len-j]
+                    break
                 
-#             if(len(longest) < len(new)): longest = new 
+            if(len(longest) < len(new)): longest = new
         
-#         return longest
+        return longest
 
 # 1. Book Solution
-    def longestPalindrome(self, s: str) -> str:
-        def expand(left: int, right: int) -> str:
-            while left >= 0 and right < len(s) and s[left] == s[right]:
-                left -= 1
-                right += 1
+#     def longestPalindrome(self, s: str) -> str:
+#         def expand(left: int, right: int) -> str:
+#             while left >= 0 and right < len(s) and s[left] == s[right]:
+#                 left -= 1
+#                 right += 1
             
-            return s[left+1:right]
+#             return s[left+1:right]
         
-        if len(s) < 2 or s == s[::-1]:
-            return s
+#         if len(s) < 2 or s == s[::-1]:
+#             return s
         
-        result = ''
+#         result = ''
         
-        for i in range(len(s)-1):
-            result = max(result,
-                        expand(i,i+1),
-                        expand(i,i+2), key=len)
-        return result
+#         for i in range(len(s)-1):
+#             result = max(result,
+#                         expand(i,i+1),
+#                         expand(i,i+2), key=len)
+#         return result
 
 # 2. Dyanmic Programming
 #     def longestPalindrome(self, s: str) -> str:
