@@ -18,7 +18,7 @@ class Solution:
         
         return longest
 
-# 1. Book Solution
+# 1. Book Solution - Fastest and Best Solution
 #     def longestPalindrome(self, s: str) -> str:
 #         def expand(left: int, right: int) -> str:
 #             while left >= 0 and right < len(s) and s[left] == s[right]:
