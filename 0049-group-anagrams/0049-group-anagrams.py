@@ -5,5 +5,5 @@ class Solution:
         for word in strs:
             anagrams[''.join(sorted(word))].append(word)
             
-        return [v for k,v in anagrams.items()]
+        return list(anagrams.values())
         
